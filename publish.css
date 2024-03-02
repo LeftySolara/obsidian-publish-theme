@@ -1,0 +1,180 @@
+/******************************************************************************
+* Julianne's Obsidian Publish theme.
+*
+* This is the CSS used for my Obsidian Publish site at
+* https://wiki.julianneadams.dev. It uses a custom color scheme along with
+* some other style tweaks here and there. This theme does not cover as many
+* elements as most of the big themes that are out there, but at some point
+* it probably will.
+*
+* This theme was created from the ground up and is iterated on as I find
+* new things I want to change.
+*
+* A NOTE ON COMPLEX SELECTORS:
+* The Obsidian team recommends avoiding complex selectors in favor of the
+* many available CSS variables provided by the software. However, there are
+* times where some elements do not use a variable to begin with so there's
+* nothing to override. We do use complex selectors in these cases, though
+* we try to use them sparingly.
+******************************************************************************/
+
+/* Lora and Inter fonts. Lora is used for headings and Inter for body copy and interface elements. */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Lora:ital,wght@0,400..700;1,400..700&display=swap");
+
+/*************************************
+* Variables used throughout the theme
+*************************************/
+:root {
+  /* Color palette */
+  --color-primary: #67ac62;
+  --color-light-shades: #f0f1f2;
+  --color-light-accent: #898f75;
+  --color-dark-shades: #272329;
+  --color-dark-accent: #6c5f56;
+  --color-background: #fbfbfb;
+  --color-default: #999999;
+  --color-success: #54ae55;
+  --color-warning: #d29e1d;
+  --color-danger: #f44336;
+
+  /* Headings* */
+  --heading-font-family: "Lora", serif;
+  --heading-font-weight: var(--font-semibold);
+  --heading-line-height: 125%;
+  --heading-color: var(--color-primary);
+  --heading-margin: 16px;
+
+  /* Body copy */
+  --body-font-family: "Inter", sans-serif;
+}
+
+/*********************************
+* Styles that apply to all themes
+**********************************/
+.published-container {
+  /* Typography */
+  --font-text-theme: var(--body-font-family);
+  --font-interface-theme: var(--body-font-family);
+
+  --h1-font: var(--heading-font-family);
+  --h2-font: var(--heading-font-family);
+  --h3-font: var(--heading-font-family);
+  --h4-font: var(--heading-font-family);
+  --h5-font: var(--heading-font-family);
+  --h6-font: var(--heading-font-family);
+
+  --h1-weight: var(--heading-font-weight);
+  --h2-weight: var(--heading-font-weight);
+  --h3-weight: var(--heading-font-weight);
+  --h4-weight: var(--heading-font-weight);
+  --h5-weight: var(--heading-font-weight);
+  --h6-weight: var(--heading-font-weight);
+
+  --h1-color: var(--heading-color);
+  --h2-color: var(--heading-color);
+  --h3-color: var(--heading-color);
+  --h4-color: var(--heading-color);
+  --h5-color: var(--heading-color);
+  --h6-color: var(--heading-color);
+
+  --heading-spacing: 16px;
+
+  /* Site header */
+  --header-background: var(--color-dark-shades);
+
+  /* Sidebars */
+  --sidebar-left-background: var(--color-dark-shades);
+  --sidebar-right-background: var(--color-light-shades);
+
+  --site-name-color: var(--color-light-shades);
+  --site-name-color-hover: var(--color-light-shades);
+  --site-name-font: var(--heading-font-family);
+  --site-name-weight: var(--heading-font-weight);
+
+  --nav-collapse-icon-color: var(--color-light-shades);
+  --nav-collapse-icon-color-hover: var(--color-default);
+  --nav-parent-item-color: var(--color-light-shades);
+  --nav-parent-item-color-active: var(--color-primary);
+  --nav-item-color: var(--color-light-shades);
+  --nav-item-color-hover: var(--color-default);
+  --nav-item-color-active: var(--color-primary);
+  --nav-item-border-color: var(--color-default);
+  --nav-item-border-color-hover: var(--color-default);
+  --nav-item-border-color-active: var(--color-primary);
+}
+
+/**************************************************************************
+* Change the color of the site navigation modal on mobile so it's readable
+**************************************************************************/
+.published-container .site-body .site-body-left-column {
+  background-color: var(--color-dark-shades);
+}
+
+/***************************************
+* Right sidebar nav selected item color
+***************************************/
+.outline-view-outer .tree-item-self.mod-active .tree-item-inner {
+  color: var(--color-primary);
+}
+
+/****************************************************************************
+* Remove the horizontal rule under the "Footnotes" heading.
+* We do this because there is already a horizontal rule generated
+* for the section separation, resulting in two consecutive horizontal rules.
+****************************************************************************/
+.footnotes hr {
+  display: none;
+}
+
+/*********************************
+* Heading colors when highlighted
+*********************************/
+.is-flashing .publish-article-heading {
+  color: var(--color-light-shades);
+}
+
+/********************
+* Light theme styles
+********************/
+.theme-light {
+  /* Page background color */
+  --background-primary: var(--color-background);
+  --background-primary-alt: var(--color-default);
+
+  /* Typography colors */
+  --text-normal: var(--color-dark-shades);
+  --text-accent: var(--color-dark-accent);
+  --text-on-accent: var(--color-light-shades);
+  --text-on-accent-inverted: var(--color-dark-shades);
+  --text-success: var(--color-success);
+  --text-warning: var(--color-warning);
+  --text-error: var(--color-danger);
+  --text-selection: var(--color-primary);
+  --text-highlight-bg: var(--color-primary);
+
+  --link-color: var(--color-primary);
+  --link-color-hover: var(--color-light-accent);
+  --link-unresolved-color: var(--color-primary);
+  --link-unresolved-decoration-color: var(--color-primary);
+  --link-external-color: var(--color-primary);
+  --link-external-color-hover: var(--color-light-accent);
+
+  --code-background: var(--color-light-shades);
+  --code-normal: var(--color-dark-shades);
+
+  --tag-color: var(--color-light-shades);
+  --tag-color-hover: var(--color-light-shades);
+  --tag-background: var(--color-primary);
+  --tag-background-hover: var(--color-dark-accent);
+
+  /* Interactive element colors */
+  --interactive-accent: var(--color-primary);
+
+  --blockquote-border-color: var(--color-primary);
+
+  --checkbox-color: var(--color-primary);
+  --checkbox-color-hover: var(--color-primary);
+  --checkbox-border-color: var(--color-primary);
+  --checkbox-border-color-hover: var(--color-dark-shades);
+}
+
